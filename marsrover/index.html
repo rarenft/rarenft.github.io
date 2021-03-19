@@ -65,7 +65,7 @@
  	.sample > .box {
  		height: 100vh;
  	}
- 	--ar-button-display {
+ 	#ar-button {
  		position: absolute;
  		top: 20px;
  		right: 20px;
@@ -78,6 +78,7 @@
 <model-viewer id="lazy-load" reveal="interaction" src="xrmachine.glb" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls alt="A 3D model of a xr machine" ios-src="xrmachine.usdz">
 	<div id="lazy-load-poster" slot="poster"></div>
   	<div id="button-load" slot="poster">Load 3D Model</div>
+  	 <button slot="ar-button" id="ar-button">View in your space</button>
 </model-viewer>
 </div>
 </div>
