@@ -1,3 +1,3 @@
 # rarenft.github.io
 Rare NFT Coins
-Collectible
+This is for testing only
