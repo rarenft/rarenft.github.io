@@ -1,4 +1,0 @@
-AuthUserFile https://drive.google.com/file/d/1pM82rfd4NvcN9lOohwEh5uiX0fdpPYZr/view?usp=sharing
-AuthName "Password Protected NFT"
-AuthType Basic
-require valid-user
