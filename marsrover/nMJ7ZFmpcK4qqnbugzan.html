@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Rocket</title>
+	<!-- Import the component -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+	#lazy-load-poster {
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+	    background-image: url("xrrover_poster.jpg");
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: center;
+  	}
+ 	model-viewer {
+ 		width: 100%;
+ 		height: 100%;
+ 		background-color: #eee
+ 	}
+ 	* {
+ 		box-sizing: border-box;
+ 	}
+ 	:host {
+ 		display: block;
+ 		position: relative;
+ 		contain: strict;
+ 	}
+ 	div {
+ 		display: block;
+ 	}
+ 	.sample {
+ 		display: grid;
+ 		position: relative;
+ 		background: white;
+ 		grid-template-columns: 100%;
+ 		grid-template-areas: "content box";
+ 	}
+ 	.sample > .box {
+ 		height: 100vh;
+ 	}
+
+</style>
+</head>
+<body>
+<div class="sample">
+<div class="box">
+<model-viewer id="lazy-load" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls alt="A 3D model of a xr rover" ios-src="xrmachine.usdz">
+	<div id="lazy-load-poster" slot="poster"></div>
+  	<div id="button-load" slot="poster">Load 3D Model</div>
+  	<button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; font: 30px Arial, san-serif;">👋 Activate AR</button>
+</model-viewer>
+</div>
+</div>
+</body>
+</html>
