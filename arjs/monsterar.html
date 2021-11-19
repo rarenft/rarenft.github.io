@@ -12,15 +12,16 @@
   <body style="margin: 0; overflow: hidden;">
     <a-scene
       vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true;"
       embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
+      arjs="rackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-text
-        value="This content will always face you."
+      <a-entity
+        gltf-model="alien.gltf"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="10 10 10"
         gps-entity-place="latitude: 42.171822; longitude: -71.205835;"
-      ></a-text>
+      ></a-entity>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
