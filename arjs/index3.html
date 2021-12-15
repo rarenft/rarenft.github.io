@@ -7,6 +7,12 @@
   <script src="js/aframe-extras.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   <body style="margin : 0px; overflow: hidden;">
+    <audio src="audio/birdsound.wav" id="my_audio" loop="loop"></audio>
+    <script type="text/javascript">
+      window.onload=function(){
+        document.getElementById("my_audio").play();
+      }
+    </script>
     <a-scene embedded arjs>
       <a-marker type="pattern" preset="custom" url="patt/pattern-bird.patt">
         <a-entity
