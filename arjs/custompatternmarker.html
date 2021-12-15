@@ -1,0 +1,45 @@
+<!-- This is an example to use custom pattern with marker based ar.js
+  It uses animation mixer to aneble motion
+  It also adds sound effect when a model is loaded and disable sound when a model is unloaded
+-->
+<!DOCTYPE html>
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- Add these libraries to enable animation mmixer -->
+  <script src="js/aframe-extras.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-assets>
+        <audio id="sound" src="audio/birdsound.wav" preload="auto"></audio>
+      </a-assets>
+      <a-marker type="pattern" preset="custom" url="patt/pattern-bird.patt">
+        <a-entity
+          position="0 0 0"
+          animation-mixer
+          scale="1 1 1"
+          gltf-model="bird.glb"
+        ></a-entity>
+        <a-box position='0 0.5 0' material='color: black;' height='0.01' width='0.01' soundhandler></a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+      <a-entity sound="src: #sound" autoplay="false"></a-entity>
+    </a-scene>
+    <script>
+    AFRAME.registerComponent('soundhandler', {
+        tick: function () {
+               var entity = document.querySelector('[sound]');
+             if (document.querySelector('a-marker').object3D.visible == true) {
+                entity.components.sound.playSound();
+            } else {
+                entity.components.sound.pauseSound();
+            }
+
+         }
+    });
+    </script>
+  </body>
+</html>
