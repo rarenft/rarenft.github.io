@@ -7,13 +7,10 @@
   <script src="js/aframe-extras.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   <body style="margin : 0px; overflow: hidden;">
-    <audio src="audio/birdsound.wav" id="my_audio" loop="loop"></audio>
-    <script type="text/javascript">
-      window.onload=function(){
-        document.getElementById("my_audio").play();
-      }
-    </script>
     <a-scene embedded arjs>
+      <a-assets>
+        <audio id="sound" src="audio/birdsound.wav" preload="auto" loop="loop"></audio>
+      </a-assets>
       <a-marker type="pattern" preset="custom" url="patt/pattern-bird.patt">
         <a-entity
           position="0 0 0"
@@ -21,8 +18,23 @@
           scale="1 1 1"
           gltf-model="bird.glb"
         ></a-entity>
+        <a-box position='0 0.5 0' material='color: black;' soundhandler></a-box>
       </a-marker>
       <a-entity camera></a-entity>
+      <a-entity sound="src: #sound" autoplay="false"></a-entity>
     </a-scene>
+    <script>
+    AFRAME.registerComponent('soundhandler', {
+        tick: function () {
+               var entity = document.querySelector('[sound]');
+             if (document.querySelector('a-marker').object3D.visible == true) {
+                entity.components.sound.playSound();
+            } else {
+                entity.components.sound.pauseSound();
+            }
+
+         }
+    });
+    </script>
   </body>
 </html>
