@@ -9,7 +9,7 @@
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
       <a-assets>
-        <audio id="sound" src="audio/birdsound.wav" preload="auto" loop="loop"></audio>
+        <audio id="sound" src="audio/birdsound.wav" preload="auto"></audio>
       </a-assets>
       <a-marker type="pattern" preset="custom" url="patt/pattern-bird.patt">
         <a-entity
@@ -21,7 +21,7 @@
         <a-box position='0 0.5 0' material='color: black;' soundhandler></a-box>
       </a-marker>
       <a-entity camera></a-entity>
-      <a-entity sound="src: #sound" autoplay="false"></a-entity>
+      <a-entity sound="src: #sound" autoplay="true"></a-entity>
     </a-scene>
     <script>
     AFRAME.registerComponent('soundhandler', {
